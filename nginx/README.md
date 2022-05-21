@@ -13,6 +13,9 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
     - [Multiple Domain](#multiple-domain)
     - [Multiple Website with Path](#multiple-website-with-path)
     - [Custom Error Page](#custom-error-page)
+- [Mime Types](#mime-types)
+    - [Default Mime Types](#default-mime-types)
+    - [Custom Mime Types](#custom-mime-types)
 - [Best Practice](#best-practice)
 
 ## Command Line Options
@@ -229,6 +232,17 @@ In this section, we will discuss how to configure the Nginx mime types.
 
 ### Default Mime Types
 change directory to `nginx/4-mime-types/1-default/`
+
+```sh
+# to run
+docker compose up -d
+
+# to remove
+docker compose down
+```
+
+### Custom Mime Types
+change directory to `nginx/4-mime-types/2-custom/`
 
 ```sh
 # to run

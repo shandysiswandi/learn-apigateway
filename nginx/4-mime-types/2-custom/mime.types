@@ -1,0 +1,6 @@
+types {
+    text/html       html;
+    text/css	    css;
+    images/png	    png;
+    application/pdf pdf;
+}
