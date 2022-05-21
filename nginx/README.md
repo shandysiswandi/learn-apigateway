@@ -8,6 +8,8 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 - [Serving Static Content](#serving-static-content)
     - [Single Domain](#single-domain)
     - [Multiple Domain](#multiple-domain)
+    - [Multiple Website with Path](#multiple-website-with-path)
+    - [Custom Error Page](#custom-error-page)
 - [Best Practice](#best-practice)
 
 ## Command Line Options
@@ -158,6 +160,19 @@ docker compose down
 it will serve static content on single server, single domain and multiple website with different path
 
 change directory to `nginx/3-serving-static-content/3-multiple-website-with-path`
+
+```sh
+# to run
+docker compose up -d
+
+# to remove
+docker compose down
+```
+
+### Custom Error Page
+it will serve static content on single server, single domain and custom error pages
+
+change directory to `nginx/3-serving-static-content/4-custom-error-page`
 
 ```sh
 # to run
