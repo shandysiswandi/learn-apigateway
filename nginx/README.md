@@ -164,7 +164,7 @@ docker compose -f compose.yaml down
 ```
 
 ## Serving Static Content
-In this section, we will discuss how to configure the Nginx Plus and Nginx open source to serve static content.
+In this section, we will discuss how to configure the Nginx to serve static content.
 
 ### Single Domain
 it will serve static content on one server and domain
@@ -215,6 +215,20 @@ docker compose down
 it will serve static content on single server, single domain and custom error pages
 
 change directory to `nginx/3-serving-static-content/4-custom-error-page`
+
+```sh
+# to run
+docker compose up -d
+
+# to remove
+docker compose down
+```
+
+## Mime Types
+In this section, we will discuss how to configure the Nginx mime types.
+
+### Default Mime Types
+change directory to `nginx/4-mime-types/1-default/`
 
 ```sh
 # to run
