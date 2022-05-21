@@ -3,6 +3,9 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ## Table of Contents
 - [Command Line Options](#command-line-options)
+- [The Book of Nginx](#the-book-of-nginx)
+    - [Main Context](#main-context)
+    - [Events Context](#events-context)
 - [Getting Started](#getting-started)
 - [Contexts](#contexts)
 - [Serving Static Content](#serving-static-content)
@@ -32,6 +35,45 @@ Options:
   -g directives : set global directives out of configuration file
 
 ```
+
+## The Book of Nginx
+is summary of configuration, architecture, and component in nginx.
+
+### Main Context
+| Directive              | Values                                                  | Example                                       |
+| ---------------------- | ------------------------------------------------------- | --------------------------------------------- | 
+| daemon                 | on, off                                                 | daemon on;                                    |
+| debug_points           | abort, stop                                             | debug_points stop;                            |
+| env                    | variable[=value]                                        | env TZ; or env TZ=UTC;                        |
+| error_log              | file level=debug,info,notice,warn,error,crit,alert,emerg| error_log logs/error.log;                     |
+| load_module            | file                                                    | load_module path/mail_module.so;              |
+| lock_file              | file                                                    | lock_file logs/nginx.lock;                    |
+| master_process         | on, off                                                 | master_process on;                            |
+| pcre_jit               | on, off                                                 | pcre_jit on;                                  |
+| pid                    | file                                                    | pid logs/nginx.pid;                           |
+| ssl_engine             | device                                                  | ...                                           |
+| thread_pool            | name threads=number [max_queue=number]                  | thread_pool default threads=32 max_queue=1000;|
+| timer_resolution       | interval                                                | timer_resolution;                             |
+| user                   | user [group];                                           | user nobody nobody;                           |
+| worker_cpu_affinity    | auto, cpumask                                           | worker_cpu_affinity 0101 1010;                |
+| worker_priority        | number                                                  | worker_priority 1;                            |
+| worker_processes       | auto, number                                            | worker_processes 1;                           |
+| worker_rlimit_core     | size                                                    | worker_rlimit_core 500MiB;                    |
+| worker_rlimit_nofile   | number                                                  | worker_rlimit_nofile 8192                     |
+| worker_shutdown_timeout| time                                                    | worker_shutdown_timeout 100ms;                |
+| working_directory      | directory                                               | working_directory /path/to/dir;               |
+
+### Events Context
+| Directive             | Values                                            |   Example                         |
+| --------------------- | ------------------------------------------------- | --------------------------------- | 
+| accept_mutex          | on, off                                           | accept_mutex on;                  |
+| accept_mutex_delay    | time                                              | accept_mutex_delay 500ms;         |
+| debug_connection      | address, CIDR, unix:                              | debug_connection 192.0.2.0/24;    |
+| multi_accept          | on, off                                           | multi_accept off;                 |
+| use                   | select, poll, kqueue, epoll, /dev/poll, eventport | use select;                       |
+| worker_aio_requests   | number                                            | worker_aio_requests 32;           |
+| worker_connections    | number                                            | worker_connections 512;           |
+
 
 ## Getting Started
 change directory to `nginx/1-getting-started`
