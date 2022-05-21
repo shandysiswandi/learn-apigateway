@@ -125,7 +125,7 @@ In this section, we will discuss how to configure the Nginx Plus and Nginx open 
 ### Single Domain
 it will serve static content on one server and domain
 
-change directory to `nginx/3-3-serving-static-content/1-single-domain`
+change directory to `nginx/3-serving-static-content/1-single-domain`
 
 ```sh
 # to run
@@ -138,13 +138,26 @@ docker compose down
 ### Multiple Domain
 it will serve static content on one server and multiple domain
 
-change directory to `nginx/3-3-serving-static-content/2-multiple-domain`
+change directory to `nginx/3-serving-static-content/2-multiple-domain`
 
 before run command below you have to add alias domain in your hosts file, example 
 ```hosts
 12.0.0.1     domain1.localhost
 12.0.0.1     domain2.localhost
 ```
+
+```sh
+# to run
+docker compose up -d
+
+# to remove
+docker compose down
+```
+
+### Multiple Website with Path
+it will serve static content on single server, single domain and multiple website with different path
+
+change directory to `nginx/3-serving-static-content/3-multiple-website-with-path`
 
 ```sh
 # to run
