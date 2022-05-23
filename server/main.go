@@ -1,11 +1,27 @@
 package main
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+	"os"
+
+	"github.com/gorilla/mux"
+)
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	m := mux.NewRouter()
+
+	m.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte(`Welcome to server`))
-	})
-	http.ListenAndServe(":8080", nil)
+	}).Methods(http.MethodGet)
+
+	m.HandleFunc("/host", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		name, _ := os.Hostname()
+		w.Write([]byte(name))
+	}).Methods(http.MethodGet)
+
+	log.Println("Starting server on :8080")
+	http.ListenAndServe(":8080", m)
 }
